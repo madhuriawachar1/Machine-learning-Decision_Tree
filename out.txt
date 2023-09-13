@@ -1,0 +1,50 @@
+before transpose
+     mpg  cylinders  displacement  ... model year  origin                   car name
+0  18.0          8         307.0  ...         70       1  chevrolet chevelle malibu
+1  15.0          8         350.0  ...         70       1          buick skylark 320
+2  18.0          8         318.0  ...         70       1         plymouth satellite
+3  16.0          8         304.0  ...         70       1              amc rebel sst
+4  17.0          8         302.0  ...         70       1                ford torino
+
+[5 rows x 9 columns]
+after transpose
+     mpg  cylinders  displacement  ... model year  origin                   car name
+0  18.0          8         307.0  ...         70       1  chevrolet chevelle malibu
+1  15.0          8         350.0  ...         70       1          buick skylark 320
+2  18.0          8         318.0  ...         70       1         plymouth satellite
+3  16.0          8         304.0  ...         70       1              amc rebel sst
+4  17.0          8         302.0  ...         70       1                ford torino
+
+[5 rows x 9 columns]
+Accuracy: 1.0
+MSE: 0.0
+RMSE: 0.0
+?(origin_america <= 0.0)
+	Y: ?(origin_asia <= 0.0)
+		Y: ?(mpg <= 16.35)
+			Y: Value 1
+			N: ?(mpg <= 16.75)
+				Y: Value 1.0
+				N: Value 1.0
+		N: ?(mpg <= 18.5)
+			Y: Value 0
+			N: ?(mpg <= 19.0)
+				Y: Value 0.0
+				N: Value 0.0
+	N: ?(mpg <= 9.5)
+		Y: Value 0
+		N: ?(mpg <= 10.0)
+			Y: ?(mpg <= 10.0)
+				Y: Value 0.0
+				N: Value nan
+			N: ?(mpg <= 11.0)
+				Y: Value 0.0
+				N: Value 0.0
+
+My Model
+Train Scores:
+	RMSE:  0.0
+	MAE:  0.0
+Test Scores:
+	RMSE:  0.0
+	MAE:  0.0
